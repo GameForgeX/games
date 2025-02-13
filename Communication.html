@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #5b9bd5;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 600px;
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #5b9bd5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #4a8ab4;
+        }
+
+        #responseMessage {
+            margin-top: 15px;
+            color: green;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Send Message</h1>
+    
+    <textarea id="message" placeholder="Write your message here.."></textarea>
+    <br>
+    <button onclick="sendMessage()">Send</button>
+
+    <p id="responseMessage" style="display: none;"></p>
+
+    <script>
+        function sendMessage() {
+            const message = document.getElementById('message').value;
+            
+            if (message) {
+                const email = 'fasterstudiox@gmail.com'; // E-posta adresini belirtin
+                const responseMessage = document.getElementById('responseMessage');
+                responseMessage.textContent = `Message "${message}" ${email} Sent to address!`;
+                responseMessage.style.display = 'block'; // Mesajý görünür yap
+
+                // Metin alanýný temizle
+                document.getElementById('message').value = '';
+            } else {
+                alert('Please write something here..');
+            }
+        }
+    </script>
+</body>
+</html>
